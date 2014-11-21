@@ -99,32 +99,32 @@ public class VentanaNumPrimo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBComprobarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComprobarActionPerformed
-        
+
         //Recuperamos el numero
-        int numero = Integer.parseInt(jTFNumero.getText());        
-        int contador = numero;
+        int numero = Integer.parseInt(jTFNumero.getText());
+        int denominador = 2;
         boolean esPrimo = true;
 
         //Comprobamos si es divisible por un numero menor al el y distinto de 1
-        while ((contador > 2) & (esPrimo == true)){
-            contador --;
-            if (numero % contador == 0.0)
+        while ((denominador < numero) & (esPrimo == true)) {
+            if (numero % denominador == 0.0) {
                 esPrimo = false;
+            }
+            denominador++;
         }
-        if (esPrimo){
-                JOptionPane.showMessageDialog(
-                        this,
-                        "El Numero es Primo",
-                        "Es Primo",
-                        JOptionPane.INFORMATION_MESSAGE);
-        }else{
-                JOptionPane.showMessageDialog(
-                        this,
-                        "El Numero No es Primo, divisible entre: " + contador,
-                        "No es Primo",
-                        JOptionPane.INFORMATION_MESSAGE);
-        }        
-        
+        if (esPrimo) {
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El Numero es Primo",
+                    "Es Primo",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "El Numero No es Primo, divisible entre: " + --denominador,
+                    "No es Primo",
+                    JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_jBComprobarActionPerformed
 
     /**
